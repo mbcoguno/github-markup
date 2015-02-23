@@ -5,7 +5,7 @@ module GitHub
     class Markdown < Implementation
       MARKDOWN_GEMS = {
         "github/markdown" => proc { |content|
-          GitHub::Markdown.render(content)
+          GitHub::Markdown.to_html(content, :gfm)
         },
         "redcarpet" => proc { |content|
           Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(content)
